@@ -3,7 +3,7 @@
 @file: Main __init__ for bitbucketlock
 """
 
-from .BitBucketLock import BitBucketLock, BitBucketError, \
+from ._BitBucketLock import BitBucketLock, BitBucketError, \
     BitBucketRestError, BitBucketConnectionError
 
 
