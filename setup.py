@@ -35,6 +35,7 @@ setuptools.setup(
         "requests",
     ],
     tests_require=['pytest', ],
+    setup_requires=['pytest-runner', ],
     entry_points={
         'console_scripts': [
             'bitbucketlock=bitbucketlock:main',
