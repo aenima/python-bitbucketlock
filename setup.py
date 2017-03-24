@@ -26,6 +26,7 @@ setuptools.setup(
     license="MIT",
     platforms="all",
     keywords='bitbucket atlassian lock backup',
+    url="https://github.com/aenima/python-bitbucketlock",
     classifiers=[
         "Programming Language :: Python :: 2",
         "Programming Language :: Python :: 2.7",
