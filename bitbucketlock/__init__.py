@@ -7,4 +7,4 @@ from .BitBucketLock import BitBucketLock, BitBucketError, \
     BitBucketRestError, BitBucketConnectionError
 
 
-__version__ = "0.1"
+__version__ = "0.1.1"

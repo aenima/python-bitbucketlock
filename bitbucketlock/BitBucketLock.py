@@ -58,7 +58,7 @@ class BitBucketLock(object):
         self._cancel_token = None
         return
 
-    def __enter_(self):
+    def __enter__(self):
         self.acquire()
         return self
 
