@@ -1,8 +1,9 @@
 # -*- coding: utf8 -*-
 """
-
+@file BitBucketLock main class
 
 """
+
 import time
 
 import requests
@@ -68,11 +69,19 @@ class BitBucketLock(object):
         return
 
     def get_unlock_token(self):
+        """
+        Fetch the unlock token if it is already set
+
+        """
         if not self._is_locked:
             raise BitBucketError("Server not locked")
         return self._unlock_token
 
     def get_cancel_token(self):
+        """
+        Fetch the backup cancel token if it is already set
+
+        """
         if not self._is_locked:
             raise BitBucketError("Server not locked")
         return self._cancel_token
@@ -80,6 +89,9 @@ class BitBucketLock(object):
     def set_progress(self, percentage):
         """
         Set own backup progress. Visible by web users
+
+        Note: 100% is disallowed because this will trigger a
+              lock release. Use release() instead for this.
         """
         if not self._is_locked:
             raise BitBucketError("Server not locked")
