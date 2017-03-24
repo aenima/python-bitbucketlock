@@ -58,6 +58,14 @@ class BitBucketLock(object):
         self._cancel_token = None
         return
 
+    def __enter_(self):
+        self.acquire()
+        return self
+
+    def __exit__(self, *args, **kwargs):
+        self.release()
+        return False
+
     def acquire(self):
         """
         Initiate the Bitbucket Lock
