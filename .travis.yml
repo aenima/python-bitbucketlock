@@ -1,19 +1,26 @@
 language: python
 python:
-  - "2.6"
-  - "2.7"
-  - "3.2"
-  - "3.3"
-  - "3.4"
-  - "3.5"
-  - "3.5-dev" # 3.5 development branch
-  - "3.6"
-  - "3.6-dev" # 3.6 development branch
-  - "3.7-dev" # 3.7 development branch
-  - "nightly" # currently points to 3.7-dev
-  - pypy
-  - pypy3
-# command to install dependencies
-install: "pip install -r requirements.txt"
-# command to run tests
+- '2.6'
+- '2.7'
+- '3.2'
+- '3.3'
+- '3.4'
+- '3.5'
+- 3.5-dev
+- '3.6'
+- 3.6-dev
+- 3.7-dev
+- nightly
+- pypy
+- pypy3
+install: pip install -r requirements.txt
 script: pytest
+deploy:
+  provider: pypi
+  user: aenima
+  password:
+    secure: LN7tMWKtzLv/ETi0TRTdmXHxq4No/1kGC7oD74VG2FKOvYwGa13IiYmt7v4YQpKYFg85ieFQZHdabDwI3c0EFDx4eBoHBVhHVvCAZsegAed2Hq0t8NfAec2QbpB+kNcFBQkK+zwbMm8UMEZyQp/GgqewdKKnJxgak792Hdt5FleI42BLqf4mrFh8WmM6sxiqoPSNLRnU6NGd5R0KpgKMXSkrojIi7WiGraSMx530V5hcEfcPnRXQqHBUp/t4Zg04osGWi23b3SUV5t00PAIutwKEYaCW+0TikcQv+7gJqnEGW/JluZLlz8DZwR/sVrxlFmjjpP4JFaha02M7VEUDNOeLxMgb5rUE3M+ktNqJ4+eGmyOw+/DqB07kUpj4Y3cdFaKEiZhViGOfL3KpRwnHeBcwzTSHN/9erU2cNJUt6BOaI1AFckuuuDB7gHq4rhFw5fi1cHyV2inPbMKJSAEhZyu7tMrV9P2bWrIyH/57yINevZ0c8CTA3GIZc37qxLAK1VXZ4KZsYF4vfhtRHDmD75KEX5m21Oy8iEOo+n4vrz1/Z0C8VvSurKOUdbbn+AJKJ7I+U/NSUmzJEOONen147kMj3pD0Q2ZxmRKdMSnWy0LWMP4PKD0GxUuXsz/rL8NdkiTNiR8iJSufxoUwajGXqusSRva4gjOpFM/7OGytgFo=
+  on:
+    tags: true
+    distributions: sdist bdist_wheel
+    repo: aenima/python-bitbucketlock
